@@ -1,0 +1,63 @@
+<div class="table-container">
+  <header class="table-header">
+    <button class="back-button" (click)="goBack()">
+      ← Back to Dashboard
+    </button>
+    <div class="header-content">
+      <h1>📄 Request for Quotation</h1>
+      <p>View and manage your RFQ requests</p>
+    </div>
+  </header>
+
+  <main class="table-main">
+    <div class="loading-container" *ngIf="isLoading">
+      <div class="spinner"></div>
+      <p>Loading RFQ data...</p>
+    </div>
+
+    <div class="error-container" *ngIf="error && !isLoading">
+      <div class="error-message">{{ error }}</div>
+    </div>
+
+    <div class="table-content" *ngIf="!isLoading && !error">
+      <div class="table-wrapper" *ngIf="rfqs.length > 0">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>RFQ No.</th>
+              <th>Material</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>UOM</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Created Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rfq of rfqs">
+              <td class="rfq-number">{{ rfq.Ebeln }}</td>
+              <td>{{ rfq.Matnr }}</td>
+              <td>{{ rfq.Txz01 }}</td>
+              <td class="quantity">{{ rfq.Ktmng }}</td>
+              <td>{{ rfq.Bstyp }}</td>
+              <td>{{ rfq.Aedat | date: 'MMM dd, yyyy' }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(rfq.Statu)">
+                  {{ formatStatus(rfq.Statu) }}
+                </span>
+              </td>
+              <td>{{ rfq.Bedat | date: 'MMM dd, yyyy' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" *ngIf="rfqs.length === 0">
+        <div class="empty-icon">📄</div>
+        <h3>No RFQ Records Found</h3>
+        <p>There are currently no Request for Quotation records available.</p>
+      </div>
+    </div>
+  </main>
+</div>

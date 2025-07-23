@@ -1,0 +1,32 @@
+<div class="gr-container">
+  <h2 class="title">Goods Receipt Details</h2>
+
+  <table *ngIf="goodsReceipts.length > 0; else noGR" class="gr-table">
+    <thead>
+      <tr>
+        <th>Document No</th>
+        <th>Year</th>
+        <th>Material</th>
+        <th>Quantity</th>
+        <th>Plant</th>
+        <th>Unit</th>
+        <th>Posting Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gr of goodsReceipts">
+        <td>{{ gr.Mblnr }}</td>
+        <td>{{ gr.Mjahr }}</td>
+        <td>{{ gr.Matnr }}</td>
+        <td>{{ gr.Menge }}</td>
+        <td>{{ gr.Werks }}</td>
+        <td>{{ gr.Meins }}</td>
+        <td>{{ formatDate(gr.BudatMkpf) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noGR>
+    <p class="no-data">No Goods Receipt records found.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,58 @@
+<div class="profile-layout" style="display: flex; min-height: 100vh;">
+  <app-sidebar></app-sidebar>
+  <div class="profile-container" style="flex: 1; margin-left: 220px;">
+    <header class="profile-header">
+      <h1>{{ profile?.Name1 || 'Vendor Name' }}</h1>
+      <button class="back-button" (click)="goBack()">← Back to Dashboard</button>
+    </header>
+ 
+    <main class="profile-main">
+      <div class="loading-container" *ngIf="isLoading">
+        <div class="spinner"></div>
+        <p>Loading profile...</p>
+      </div>
+ 
+      <div class="error-container" *ngIf="error && !isLoading">
+        <div class="error-message">{{ error }}</div>
+      </div>
+ 
+      <div class="profile-content" *ngIf="profile && !isLoading">
+        <div class="profile-grid">
+          <div class="profile-card">
+            <div class="card-header">
+              <h2>📋 Basic Information</h2>
+            </div>
+            <div class="card-content">
+              <div class="field-group">
+                <label>Vendor ID</label>
+                <span>{{ profile.Lifnr }}</span>
+              </div>
+              <div class="field-group">
+                <label>Name</label>
+                <span>{{ profile.Name1 }}</span>
+              </div>
+              <div class="field-group">
+                <label>Country</label>
+                <span>{{ profile.Land1 }}</span>
+              </div>
+              <div class="field-group">
+                <label>City</label>
+                <span>{{ profile.Ort01 }}</span>
+              </div>
+              <div class="field-group">
+                <label>Street</label>
+                <span>{{ profile.Stras}}</span>
+              </div>
+              <div class="field-group">
+                <label>Zip Code</label>
+                <span>{{ profile.Pstlz }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+ 
+ 

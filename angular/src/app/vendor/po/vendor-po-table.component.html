@@ -1,0 +1,34 @@
+<div class="rfq-container">
+  <h2 class="title">Vendor Purchase Orders</h2>
+
+  <table *ngIf="pos.length > 0; else noPO" class="po-table">
+    <thead>
+      <tr>
+        <th>PO Number</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Quantity (KG)</th>
+        <th>Price (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let po of pos">
+        <td>{{ po.Ebeln }}</td>
+        <td>
+          <span [ngClass]="po.Bstyp === 'F' ? 'badge active' : 'badge inactive'">
+            {{ po.Bstyp === 'F' ? 'Active' : po.Bstyp }}
+          </span>
+        </td>
+        <td>{{ formatDate(po.Bedat) }}</td>
+        <td>{{ po.Txz01 }}</td>
+        <td>{{ po.Ktmng | number:'1.0-0' }}</td>
+        <td>₹{{ po.Netpr }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noPO>
+    <p class="no-data">No Purchase Orders available for this vendor.</p>
+  </ng-template>
+</div>

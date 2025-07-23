@@ -1,0 +1,45 @@
+.gr-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.gr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.gr-table th,
+.gr-table td {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.gr-table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+  color: #555;
+}
+
+.gr-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  margin-top: 20px;
+}

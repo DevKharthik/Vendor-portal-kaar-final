@@ -1,0 +1,138 @@
+.sidebar {
+  width: 300px;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1e293b;
+  padding: 32px 0 0 0;
+  box-shadow: 4px 0 24px -4px rgba(30,41,59,0.18), 1px 0 0 #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 22px 36px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
+  border-left: 4px solid transparent;
+  border-radius: 8px 0 0 8px;
+  margin-bottom: 14px;
+}
+
+.sidebar li:hover {
+  background: #e0e7ef;
+  border-left: 6px solid #3b82f6;
+  color: #2563eb;
+  transform: scale(1.04);
+  box-shadow: 0 2px 12px rgba(59,130,246,0.08);
+}
+
+.icon {
+  margin-right: 18px;
+  font-size: 26px;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 24px 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 32px;
+}
+
+.logo-container {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.sidebar-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.vendor-info {
+  text-align: center;
+}
+
+.vendor-id {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.vendor-name {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.logout-sidebar-button {
+  width: 88%;
+  margin: 0 6%;
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  background: #fff0f1;
+  color: #dc2626;
+  border: none;
+  border-radius: 12px;
+  border-top: none;
+  padding: 16px 0;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(220,38,38,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.12s;
+  z-index: 101;
+  gap: 10px;
+}
+
+.logout-sidebar-button .icon {
+  font-size: 28px;
+  margin-right: 10px;
+  margin-left: -4px;
+}
+
+.logout-sidebar-button:hover {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(220,38,38,0.18);
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 90px;
+    padding: 16px 0 0 0;
+  }
+  .sidebar li {
+    padding: 12px 12px;
+    font-size: 0;
+  }
+  .sidebar li .icon {
+    margin-right: 0;
+    font-size: 22px;
+  }
+} 

@@ -1,0 +1,33 @@
+<div class="gr-container">
+  <h2 class="title">Vendor Credit Memos</h2>
+
+  <table *ngIf="memos.length > 0; else noMemos" class="gr-table">
+    <thead>
+      <tr>
+        <th>Memo No.</th>
+        <th>Vendor Code</th>
+        <th>Fiscal Year</th>
+        <th>Posting Date</th>
+        <th>Entry Date</th>
+        <th>Document Type</th>
+        <th>Net Value</th>
+        <th>Currency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let memo of memos">
+        <td>{{ memo.Gjahr }}</td>
+        <td>{{ memo.Lifnr }}</td>
+        <td>{{ formatDate(memo.Budat) }}</td>
+        <td>{{ formatDate(memo.Cpudt)}}</td>
+        <td>{{ memo.Blart }}</td>
+        <td>{{ memo.Netwr }}</td>
+        <td>{{ memo.Waerk }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noMemos>
+    <p class="no-data">No Memo records found.</p>
+  </ng-template>
+</div>

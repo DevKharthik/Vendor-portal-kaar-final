@@ -1,0 +1,58 @@
+<div class="dashboard-layout" style="display: flex; min-height: 100vh;">
+  <app-sidebar></app-sidebar>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="header-left">
+          <h1 *ngIf="!isFinancePage">Vendor Dashboard</h1>
+          <h1 *ngIf="isFinancePage">Finance</h1>
+          <p *ngIf="!isFinancePage">Welcome back, {{ vendorId }}</p>
+        </div>
+        <div class="header-right">
+          <span class="dashboard-date">{{ today | date:'fullDate' }}</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <div class="dashboard-content">
+        <div class="section-header">
+          <h2 *ngIf="!isFinancePage">Business Objects</h2>
+          <h2 *ngIf="isFinancePage">Finance Overview</h2>
+          <p *ngIf="!isFinancePage">Click on any tile to view detailed information</p>
+          <p *ngIf="isFinancePage">View and manage your financial documents: Invoice, Memo, and Aging.</p>
+        </div>
+
+        <div class="loading-container" *ngIf="isLoading">
+          <div class="spinner"></div>
+          <p>Loading dashboard...</p>
+        </div>
+
+        <div class="tiles-grid" *ngIf="!isLoading">
+          <div 
+            class="tile-card" 
+            *ngFor="let tile of tiles"
+            (click)="onTileClick(tile)"
+            [style.--tile-color]="tile.color"
+            style="position: relative;"
+          >
+            <span class="tile-icon" [ngSwitch]="tile.title">
+              <ng-container *ngSwitchCase="'Request for Quotation'">📄</ng-container>
+              <ng-container *ngSwitchCase="'Purchase Orders'">📦</ng-container>
+              <ng-container *ngSwitchCase="'Goods Receipt'">📥</ng-container>
+              <ng-container *ngSwitchCase="'Invoice'">🧾</ng-container>
+              <ng-container *ngSwitchCase="'Memo'">📝</ng-container>
+              <ng-container *ngSwitchCase="'Aging'">⏳</ng-container>
+              <ng-container *ngSwitchDefault>📁</ng-container>
+            </span>
+            <div class="tile-content">
+              <h3>{{ tile.title }}</h3>
+              <div class="tile-count">{{ tile.count }}</div>
+              <div class="tile-action">View Details →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

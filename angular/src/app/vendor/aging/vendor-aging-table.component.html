@@ -1,0 +1,36 @@
+<div class="gr-container">
+  <h2 class="title">Vendor Aging Details</h2>
+
+  <table *ngIf="aging.length > 0; else noAging" class="gr-table">
+    <thead>
+      <tr>
+        <th>Vendor Code</th>
+        <th>Fiscal Year</th>
+        <th>Line Item</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Posting Date</th> 
+        <th>Document Date</th>
+        <th>Due Date</th>
+        <th>Aging</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aging of aging">
+        <td>{{ aging.Lifnr }}</td>
+        <td>{{ aging.Gjahr }}</td>
+        <td>{{ aging.Buzei }}</td>
+        <td>{{ aging.Wrbtr }}</td>
+        <td>{{ aging.Waers }}</td>
+        <td>{{ formatDate(aging.Budat) }}</td>
+        <td>{{ formatDate(aging.Bldat) }}</td>
+        <td>{{ formatDate(aging.Zfbdt) }}</td>
+        <td>{{ (aging.Aging) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noAging>
+    <p class="no-data">No aging records found.</p>
+  </ng-template>
+</div>

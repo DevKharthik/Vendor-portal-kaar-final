@@ -1,0 +1,43 @@
+.gr-container {
+  margin: 2rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gr-container .title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.gr-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gr-table th, .gr-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.gr-table th {
+  background-color: #f5f7fa;
+  font-weight: 600;
+  color: #444;
+}
+
+.gr-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+.no-data {
+  padding: 1rem;
+  color: #999;
+  text-align: center;
+  font-style: italic;
+}
