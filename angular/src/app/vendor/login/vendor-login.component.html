@@ -17,6 +17,7 @@
             name="VENDOR_ID"
             [(ngModel)]="credentials.VENDOR_ID"
             placeholder="Enter your Vendor ID"
+            autocomplete="off"
             required
             [disabled]="isLoading"
           />
@@ -29,6 +30,7 @@
             name="PASSWORD"
             [(ngModel)]="credentials.PASSWORD"
             placeholder="Enter your password"
+            autocomplete="new-password"
             required
             [disabled]="isLoading"
           />

@@ -38,7 +38,8 @@ export interface PurchaseOrder {
   Netpr: number;         // Net Price
   Statu: string;         // Status
   Txz01: string;         // Description
-  Bstyp: string;         // PO Type / UOM if applicable
+  Bstyp: string;   
+   Menge: string;      // PO Type / UOM if applicable
 }
 
 export interface GoodsReceipt {
@@ -84,6 +85,7 @@ export interface Aging {
   Waers:string;
   Bldat:string;
   Aging:string;
+  calculatedAgingDays?: number;  // Calculated aging days: Posting Date - Document Date
 }
 
 export interface Memo {
@@ -93,7 +95,7 @@ export interface Memo {
   Cpudt: string;
   Blart: string;
   Netwr: string;
-  Waerk:string;
+  Waerk: string;
 }
 
 

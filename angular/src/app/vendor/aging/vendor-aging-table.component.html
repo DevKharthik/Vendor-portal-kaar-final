@@ -11,7 +11,7 @@
         <th>Posting Date</th>
         <th>Document Date</th>
         <th>Due Date</th>
-        <th>Aging</th>
+        <th>Aging (Days)</th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +24,9 @@
         <td>{{ formatDate(aging.Budat) }}</td>
         <td>{{ formatDate(aging.Bldat) }}</td>
         <td>{{ formatDate(aging.Zfbdt) }}</td>
-        <td>{{ (aging.Aging) }}</td>
+        <td [class]="getAgingClass(aging.calculatedAgingDays)">
+          {{ aging.calculatedAgingDays !== undefined && aging.calculatedAgingDays !== null ? aging.calculatedAgingDays : 0 }}
+        </td>
       </tr>
     </tbody>
   </table>

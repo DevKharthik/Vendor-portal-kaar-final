@@ -26,6 +26,19 @@ export class VendorLoginComponent {
     private router: Router
   ) {}
 
+  ngOnInit(): void {
+    // Clear any auto-filled values on component initialization
+    this.clearAutoFill();
+  }
+
+  // Clear any auto-filled values
+  clearAutoFill(): void {
+    setTimeout(() => {
+      this.credentials.VENDOR_ID = '';
+      this.credentials.PASSWORD = '';
+    }, 100);
+  }
+
   onLogin(): void {
     if (!this.credentials.VENDOR_ID || !this.credentials.PASSWORD) {
       this.errorMessage = 'Please enter both Vendor ID and Password';

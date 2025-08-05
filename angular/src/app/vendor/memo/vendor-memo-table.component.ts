@@ -76,3 +76,4 @@ formatDate(odataDate: string): string {
     return date.toLocaleDateString();
   }
 }
+  

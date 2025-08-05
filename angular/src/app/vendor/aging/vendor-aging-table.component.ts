@@ -36,7 +36,11 @@ export class VendorAgingTableComponent implements OnInit {
   loadMemo(): void {
     this.vendorService.getAging().subscribe({
       next: (aging) => {
-        this.aging = aging;
+        // Calculate aging for each record
+        this.aging = aging.map(record => ({
+          ...record,
+          calculatedAgingDays: this.calculateAgingDays(record.Budat, record.Bldat)
+        }));
         this.isLoading = false;
       },
       error: (error) => {
@@ -45,6 +49,46 @@ export class VendorAgingTableComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  // Calculate aging days: Posting Date - Document Date
+  calculateAgingDays(postingDate: string, documentDate: string): number {
+    try {
+      // Check if dates are valid and not empty
+      if (!postingDate || !documentDate || 
+          postingDate.includes('-62134368000000') || 
+          documentDate.includes('-62134368000000')) {
+        return 0;
+      }
+
+      const posting = new Date(postingDate);
+      const document = new Date(documentDate);
+      
+      // Check if dates are valid
+      if (isNaN(posting.getTime()) || isNaN(document.getTime())) {
+        return 0;
+      }
+      
+      // Calculate difference in days
+      const timeDiff = posting.getTime() - document.getTime();
+      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      
+      // Return 0 if result is NaN or negative
+      return isNaN(daysDiff) || daysDiff < 0 ? 0 : daysDiff;
+    } catch (error) {
+      console.error('Error calculating aging days:', error);
+      return 0;
+    }
+  }
+
+  // Get aging class for styling
+  getAgingClass(agingDays: number | undefined): string {
+    if (!agingDays) return '';
+    
+    if (agingDays <= 30) return 'aging-normal';
+    if (agingDays <= 60) return 'aging-warning';
+    if (agingDays <= 90) return 'aging-attention';
+    return 'aging-critical';
   }
 
   goBack(): void {

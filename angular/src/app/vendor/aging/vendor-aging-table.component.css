@@ -31,6 +31,52 @@
 .styled-table tbody tr:hover {
   background: #f0f6ff;
 }
+
+/* Aging Column Styles */
+.aging-normal {
+  color: #059669;
+  font-weight: 600;
+  background: #d1fae5;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+
+.aging-warning {
+  color: #d97706;
+  font-weight: 600;
+  background: #fef3c7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+
+.aging-attention {
+  color: #dc2626;
+  font-weight: 600;
+  background: #fee2e2;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+
+.aging-critical {
+  color: #ffffff;
+  font-weight: 700;
+  background: #dc2626;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+
 .no-data {
   color: #64748b;
   font-size: 16px;
