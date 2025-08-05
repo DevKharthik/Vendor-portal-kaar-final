@@ -70,4 +70,10 @@ formatStatus(status: string | undefined): string {
     default: return status;
   }
 }
+
+  formatDate(dateString: string): string {
+    if (!dateString) return '-';
+    // If ISO string, just take the first 10 chars
+    return dateString.length >= 10 ? dateString.substring(0, 10) : dateString;
+  }
 }

@@ -1,7 +1,6 @@
-<div class="gr-container">
+<div class="table-responsive aging-table-wrapper">
   <h2 class="title">Vendor Aging Details</h2>
-
-  <table *ngIf="aging.length > 0; else noAging" class="gr-table">
+  <table *ngIf="aging.length > 0; else noAging" class="styled-table">
     <thead>
       <tr>
         <th>Vendor Code</th>
@@ -9,7 +8,7 @@
         <th>Line Item</th>
         <th>Amount</th>
         <th>Currency</th>
-        <th>Posting Date</th> 
+        <th>Posting Date</th>
         <th>Document Date</th>
         <th>Due Date</th>
         <th>Aging</th>
@@ -29,7 +28,6 @@
       </tr>
     </tbody>
   </table>
-
   <ng-template #noAging>
     <p class="no-data">No aging records found.</p>
   </ng-template>

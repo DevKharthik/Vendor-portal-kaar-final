@@ -71,7 +71,13 @@ formatStatus(status: string | undefined): string {
   }
 }
 formatDate(odataDate: string): string {
+    if (!odataDate || odataDate.includes('-62134368000000')) {
+      return '-';
+    }
     const timestamp = parseInt(odataDate.replace(/[^0-9]/g, ''), 10);
+    if (!timestamp || timestamp < 0) {
+      return '-';
+    }
     const date = new Date(timestamp);
     return date.toLocaleDateString();
   }

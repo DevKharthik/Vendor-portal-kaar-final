@@ -1,7 +1,6 @@
-<div class="gr-container">
+<div class="table-responsive gr-table-wrapper">
   <h2 class="title">Goods Receipt Details</h2>
-
-  <table *ngIf="goodsReceipts.length > 0; else noGR" class="gr-table">
+  <table *ngIf="goodsReceipts.length > 0; else noGR" class="styled-table">
     <thead>
       <tr>
         <th>Document No</th>
@@ -25,7 +24,6 @@
       </tr>
     </tbody>
   </table>
-
   <ng-template #noGR>
     <p class="no-data">No Goods Receipt records found.</p>
   </ng-template>

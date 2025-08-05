@@ -1,45 +1,48 @@
-.gr-container {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Professional Table Styles for Aging */
+.aging-table-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(30,41,59,0.10);
+  padding: 32px 24px 24px 24px;
+  margin-bottom: 32px;
+  overflow-x: auto;
 }
-
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-
-.gr-table {
+.styled-table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.gr-table th,
-.gr-table td {
-  padding: 12px 10px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-
-.gr-table th {
-  background-color: #f4f4f4;
-  font-weight: 600;
-  color: #555;
-}
-
-.gr-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.no-data {
-  text-align: center;
-  color: #888;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 16px;
-  margin-top: 20px;
+  background: #fff;
+}
+.styled-table thead tr {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.styled-table th, .styled-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+.styled-table tbody tr {
+  transition: background 0.18s;
+}
+.styled-table tbody tr:hover {
+  background: #f0f6ff;
+}
+.no-data {
+  color: #64748b;
+  font-size: 16px;
+  text-align: center;
+  margin: 24px 0 0 0;
+}
+@media (max-width: 768px) {
+  .aging-table-wrapper {
+    padding: 16px 4px;
+  }
+  .styled-table th, .styled-table td {
+    padding: 10px 6px;
+    font-size: 14px;
+  }
 }

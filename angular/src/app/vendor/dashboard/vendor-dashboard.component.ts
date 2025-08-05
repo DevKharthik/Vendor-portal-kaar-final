@@ -122,4 +122,23 @@ export class VendorDashboardComponent implements OnInit {
   navigateToProfile(): void {
     this.router.navigate(['/vendor/profile']);
   }
+
+  getTileSubtitle(title: string): string {
+    switch (title) {
+      case 'Request for Quotation':
+        return 'View and manage your RFQs';
+      case 'Purchase Orders':
+        return 'Track your purchase orders';
+      case 'Goods Receipt':
+        return 'Monitor goods received';
+      case 'Invoice':
+        return 'Check your invoices';
+      case 'Memo':
+        return 'Review your memos';
+      case 'Aging':
+        return 'Aging analysis overview';
+      default:
+        return 'Access details';
+    }
+  }
 }
