@@ -84,7 +84,10 @@ getRFQList(): Observable<RFQ[]> {
 
   return this.http.get<{ success: boolean; data: RFQ[] }>(
     `http://localhost:5000/api/vendor/rfq/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('RFQ API response:', res);
+    return res.data ?? [];
+  }));
 }
 
   // Purchase Orders
@@ -96,7 +99,10 @@ getRFQList(): Observable<RFQ[]> {
 
   return this.http.get<{ success: boolean; data: PurchaseOrder[] }>(
     `http://localhost:5000/api/vendor/po/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('PO API response:', res);
+    return res.data ?? [];
+  }));
 }
 
   // Goods Receipt
@@ -108,7 +114,10 @@ getGrList(): Observable<GoodsReceipt[]> {
 
   return this.http.get<{ success: boolean; data: GoodsReceipt[] }>(
     `http://localhost:5000/api/vendor/gr/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('GR API response:', res);
+    return res.data ?? [];
+  }));
 }
 
 
@@ -120,7 +129,10 @@ getGrList(): Observable<GoodsReceipt[]> {
 
   return this.http.get<{ success: boolean; data:  Invoice[] }>(
     `http://localhost:5000/api/vendor/invoice/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('Invoice API response:', res);
+    return res.data ?? [];
+  }));
 }
 
 
@@ -133,7 +145,10 @@ getMemo(): Observable< Memo[]> {
 
   return this.http.get<{ success: boolean; data:  Memo[] }>(
     `http://localhost:5000/api/vendor/memo/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('Memo API response:', res);
+    return res.data ?? [];
+  }));
 }
 
 
@@ -145,7 +160,10 @@ getAging(): Observable<Aging[]> {
 
   return this.http.get<{ success: boolean; data:  Aging[] }>(
     `http://localhost:5000/api/vendor/aging/${vendorId}`
-  ).pipe(map(res => res.data));
+  ).pipe(map(res => {
+    console.log('Aging API response:', res);
+    return res.data ?? [];
+  }));
 }
 
 }

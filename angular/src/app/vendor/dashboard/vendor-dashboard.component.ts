@@ -79,12 +79,32 @@ export class VendorDashboardComponent implements OnInit {
             tile.title === 'Invoice' || tile.title === 'Memo' || tile.title === 'Aging'
           );
         } else {
-          this.tiles = allTiles;
+          this.tiles = allTiles.filter(tile =>
+            tile.title !== 'Invoice' && tile.title !== 'Memo' && tile.title !== 'Aging'
+          );
         }
         this.isLoading = false;
       },
       error: (error) => {
         console.error('Error loading dashboard data:', error);
+        // Fallback: always show all tiles with count 0
+        const allTiles: DashboardTile[] = [
+          { title: 'Request for Quotation', icon: '📄', count: 0, route: '/vendor/rfq', color: '#3b82f6' },
+          { title: 'Purchase Orders', icon: '📦', count: 0, route: '/vendor/po', color: '#10b981' },
+          { title: 'Goods Receipt', icon: '📥', count: 0, route: '/vendor/gs', color: '#f59e0b' },
+          { title: 'Invoice', icon: '🧾', count: 0, route: '/vendor/invoice', color: '#8b5cf6' },
+          { title: 'Memo', icon: '📝', count: 0, route: '/vendor/memo', color: '#8b5cf6' },
+          { title: 'Aging', icon: '⏳', count: 0, route: '/vendor/aging', color: '#8b5cf6' }
+        ];
+        if (this.isFinancePage) {
+          this.tiles = allTiles.filter(tile =>
+            tile.title === 'Invoice' || tile.title === 'Memo' || tile.title === 'Aging'
+          );
+        } else {
+          this.tiles = allTiles.filter(tile =>
+            tile.title !== 'Invoice' && tile.title !== 'Memo' && tile.title !== 'Aging'
+          );
+        }
         this.isLoading = false;
       }
     });

@@ -11,7 +11,7 @@ import { VendorService } from './vendor.service';
     <nav class="sidebar">
       <div class="sidebar-header">
         <div class="logo-container">
-          <img src="assets/logo.png" alt="Logo" class="sidebar-logo" />
+          <img src="https://media.licdn.com/dms/image/v2/D560BAQGwMDdgf5EZ9A/company-logo_200_200/company-logo_200_200/0/1725880536062/kaar_tech_logo?e=2147483647&v=beta&t=lVL6qhh9ZIqFlWrtYiCaYErGwpc7x_NXg73nMD3gRWQ" alt="Logo" class="sidebar-logo" />
         </div>
         <div class="vendor-info" *ngIf="vendorId">
           <div class="vendor-id">{{ vendorId }}</div>
