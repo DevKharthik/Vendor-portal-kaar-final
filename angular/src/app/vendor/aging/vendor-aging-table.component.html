@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Vendor Code</th>
+        <th>Billing Doc No</th>
         <th>Fiscal Year</th>
         <th>Line Item</th>
         <th>Amount</th>
@@ -17,6 +18,7 @@
     <tbody>
       <tr *ngFor="let aging of aging">
         <td>{{ aging.Lifnr }}</td>
+        <td>{{ aging.Belnr }}</td>
         <td>{{ aging.Gjahr }}</td>
         <td>{{ aging.Buzei }}</td>
         <td>{{ aging.Wrbtr }}</td>

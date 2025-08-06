@@ -85,7 +85,8 @@ export interface Aging {
   Waers:string;
   Bldat:string;
   Aging:string;
-  calculatedAgingDays?: number;  // Calculated aging days: Posting Date - Document Date
+  Belnr?: string; // Billing Document Number
+  calculatedAgingDays?: number;  // Calculated aging days: Due Date - Current Date
 }
 
 export interface Memo {

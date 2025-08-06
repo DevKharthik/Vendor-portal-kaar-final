@@ -39,7 +39,7 @@ export class VendorAgingTableComponent implements OnInit {
         // Calculate aging for each record
         this.aging = aging.map(record => ({
           ...record,
-          calculatedAgingDays: this.calculateAgingDays(record.Budat, record.Bldat)
+          calculatedAgingDays: this.calculateAgingDays(record.Zfbdt)
         }));
         this.isLoading = false;
       },
@@ -51,30 +51,27 @@ export class VendorAgingTableComponent implements OnInit {
     });
   }
 
-  // Calculate aging days: Posting Date - Document Date
-  calculateAgingDays(postingDate: string, documentDate: string): number {
+  // Calculate aging days: Due Date - Current Date
+  calculateAgingDays(dueDate: string): number {
     try {
-      // Check if dates are valid and not empty
-      if (!postingDate || !documentDate || 
-          postingDate.includes('-62134368000000') || 
-          documentDate.includes('-62134368000000')) {
+      if (!dueDate || dueDate.includes('-62134368000000')) {
         return 0;
       }
-
-      const posting = new Date(postingDate);
-      const document = new Date(documentDate);
-      
-      // Check if dates are valid
-      if (isNaN(posting.getTime()) || isNaN(document.getTime())) {
+      const match = /\d+/.exec(dueDate);
+      if (!match) {
         return 0;
       }
-      
-      // Calculate difference in days
-      const timeDiff = posting.getTime() - document.getTime();
-      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-      
-      // Return 0 if result is NaN or negative
-      return isNaN(daysDiff) || daysDiff < 0 ? 0 : daysDiff;
+      const dueTimestamp = parseInt(match[0], 10);
+      if (!dueTimestamp || dueTimestamp < 0) {
+        return 0;
+      }
+      const due = new Date(dueTimestamp);
+      const now = new Date();
+      now.setHours(0,0,0,0); // Only compare dates, not time
+      // Always positive difference in days
+      const timeDiff = due.getTime() - now.getTime();
+      const daysDiff = Math.ceil(Math.abs(timeDiff) / (1000 * 3600 * 24));
+      return isNaN(daysDiff) ? 0 : daysDiff;
     } catch (error) {
       console.error('Error calculating aging days:', error);
       return 0;
