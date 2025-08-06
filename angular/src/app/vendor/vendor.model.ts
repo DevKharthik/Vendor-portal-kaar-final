@@ -96,6 +96,7 @@ export interface Memo {
   Blart: string;
   Netwr: string;
   Waerk: string;
+  Shkzg: string; // Credit/Debit indicator: 'H' = Credit, 'S' = Debit
 }
 
 

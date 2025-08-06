@@ -186,6 +186,15 @@
   font-size: 16px;
 }
 
+.credit {
+  color: #16a34a; /* Tailwind green-600 */
+  font-weight: 600;
+}
+.debit {
+  color: #dc2626; /* Tailwind red-600 */
+  font-weight: 600;
+}
+
 /* Responsive Fix */
 @media (max-width: 1024px) {
   .data-table {

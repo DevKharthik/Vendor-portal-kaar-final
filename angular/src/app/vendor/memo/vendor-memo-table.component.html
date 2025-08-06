@@ -10,6 +10,7 @@
         <th>Type</th>
         <th>Amount</th>
         <th>Currency</th>
+        <th>Credit/Debit</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,11 @@
         <td>{{ memo.Blart }}</td>
         <td>{{ memo.Netwr }}</td>
         <td>{{ memo.Waerk }}</td>
+        <td>
+          <span [ngClass]="memo.Shkzg === 'H' ? 'credit' : memo.Shkzg === 'S' ? 'debit' : ''">
+            {{ memo.Shkzg === 'H' ? 'Credit' : memo.Shkzg === 'S' ? 'Debit' : memo.Shkzg }}
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
