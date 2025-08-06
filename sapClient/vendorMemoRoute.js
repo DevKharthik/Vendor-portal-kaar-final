@@ -7,8 +7,8 @@ const router = express.Router();
 
 // ✅ SAP Configuration
 const SAP_BASE_URL = 'http://AZKTLDS5CP.kcloud.com:8000';
-const SERVICE_PATH = '/sap/opu/odata/SAP/ZVP_VENDOR_SRV';
-const ENTITY_SET = 'ZVENDOR_MEMOSet';
+const SERVICE_PATH = '/sap/opu/odata/SAP/ZVP_VENDOR_SRV/';
+const ENTITY_SET = 'ZVENDOR_DCMEMOSet';
 const SAP_CREDS = {
   username: 'K901564',
   password: '06-Aug-030',
@@ -48,11 +48,12 @@ router.get('/:vendorId', async (req, res) => {
         Lifnr: entry.Lifnr,       // Vendor Code: "100000"
         Vbeln: entry.Vbeln,       // Billing Document Number: "5100000000"
         Gjahr: entry.Gjahr,       // Fiscal Year: "2025"
-        Budat: entry.Budat,       // Posting Date: "2025-06-03T00:00:0  0"
+        Budat: entry.Budat,       // Posting Date: "2025-06-03T00:00:00"
         Cpudt: entry.Cpudt,       // Entry Date (Created On): "2025-06-03T00:00:00"
         Blart: entry.Blart,       // Document Type: "RE"
         Netwr: entry.Netwr,       // Net Value: "13.130"
-        Waerk: entry.Waerk    
+        Waerk: entry.Waerk,   
+        Shkzg: entry.Shkzg  
     }));
 
     return res.json({ success: true, data: poList });
