@@ -9,6 +9,7 @@ const router = express.Router();
 const SAP_BASE_URL = 'http://AZKTLDS5CP.kcloud.com:8000';
 const SERVICE_PATH = '/sap/opu/odata/SAP/ZVP_VENDOR_SRV/';
 const ENTITY_SET = 'ZPO_VENDORSet';
+// Credential
 const SAP_CREDS = {
   username: 'K901564',
   password: '06-Aug-030',
