@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Route mounting
+// Route mounting in server
 app.use('/api/vendor/login', vendorLoginRoute);  // if you move login to route file
 app.use('/api/vendor/profile', vendorProfileRoute);
 app.use('/api/vendor/rfq', rfqRoute);
