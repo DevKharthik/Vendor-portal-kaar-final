@@ -7,7 +7,7 @@
         <th>Fiscal Year</th>
         <th>Posting Date</th>
         <th>Entry Date</th>
-        <th>Type</th>
+        <!-- <th>Type</th> -->
         <th>Amount</th>
         <th>Currency</th>
         <th>Credit/Debit</th>
@@ -19,7 +19,7 @@
         <td>{{ memo.Gjahr }}</td>
         <td>{{ formatDate(memo.Budat) }}</td>
         <td>{{ formatDate(memo.Cpudt) }}</td>
-        <td>{{ memo.Blart }}</td>
+        <!-- <td>{{ memo.Blart }}</td> -->
         <td>{{ memo.Netwr }}</td>
         <td>{{ memo.Waerk }}</td>
         <td>
@@ -27,7 +27,7 @@
             {{ memo.Shkzg === 'H' ? 'Credit' : memo.Shkzg === 'S' ? 'Debit' : memo.Shkzg }}
           </span>
         </td>
-      </tr>
+      </tr> 
     </tbody>
   </table>
   <ng-template #noMemo>

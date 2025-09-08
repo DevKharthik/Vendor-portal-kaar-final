@@ -9,7 +9,7 @@
         <th>Quantity (KG)</th>
         <th>Plant</th>
         <!-- <th>Unit</th> -->
-        <th>Status</th>
+        <!-- <th>Status</th> -->
         <th>Description</th>
         <th>Price (₹)</th>
       </tr>
@@ -22,11 +22,11 @@
       <td>{{ po.Menge | number:'1.0-0' }}</td>
         <td>{{ po.Ekorg }}</td>
         <!-- <td>{{ po.Bstyp }}</td> -->
-        <td>
+        <!-- <td>
           <span [ngClass]="po.Bstyp === 'F' ? 'badge badge-active' : 'badge badge-inactive'">
             {{ po.Bstyp === 'F' ? 'Closed' : po.Bstyp }}
           </span>
-        </td>
+        </td> -->
         <td>{{ po.Txz01 }}</td>
         <td>₹{{ po.Netpr }}</td>
       </tr>
